@@ -1,47 +1,56 @@
 'use client';
 
 import * as React from 'react';
-
 import DataTable from '@components/DataTable';
 
 const UpdatingDataTable = (props) => {
   const [tableData, setTableData] = React.useState(props.data);
+  const [error, setError] = React.useState<string | null>(null);
+
+  const fetchStockData = async () => {
+    try {
+      const response = await fetch('/api/stocks');
+      if (!response.ok) {
+        throw new Error('Failed to fetch stock data');
+      }
+      const { data } = await response.json();
+      
+      // Format data to match table structure
+      const formattedData = [
+        ['NAME', 'SYMBOL', 'PRICE', 'HOLDINGS'],
+        ...data.map(stock => [
+          stock.name,
+          stock.symbol,
+          stock.price,
+          stock.holdings
+        ])
+      ];
+      
+      setTableData(formattedData);
+      setError(null);
+    } catch (err) {
+      console.error('Error fetching stock data:', err);
+      setError('Failed to fetch stock data');
+      // Use sample data as fallback
+      setTableData(props.data);
+    }
+  };
 
   React.useEffect(() => {
-    const interval = setInterval(() => {
-      setTableData((prevData) => {
-        const header = prevData[0];
-        const rows = prevData.slice(1);
+    // Initial fetch
+    fetchStockData();
 
-        const updatedRows = rows.map((row) => {
-          const currentPrice = parseFloat(row[2].replace('$', ''));
-          const currentHoldings = parseInt(row[3], 10);
-          const priceChangeFactor = 1 + (Math.random() - 0.5) * 0.1;
-          const newPrice = currentPrice * priceChangeFactor;
-          const holdingsChange = Math.floor((Math.random() - 0.5) * 20);
-          const newHoldings = Math.max(1, currentHoldings + holdingsChange);
-
-          return [row[0], row[1], `$${newPrice.toFixed(2)}`, newHoldings.toString()];
-        });
-
-        updatedRows.sort((a, b) => {
-          const priceA = parseFloat(a[2].replace('$', ''));
-          const priceB = parseFloat(b[2].replace('$', ''));
-          return priceB - priceA;
-        });
-
-        return [header, ...updatedRows];
-      });
-    }, 1000);
+    // Set up polling interval
+    const interval = setInterval(fetchStockData, 5000); // Update every 5 seconds
 
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <>
-      <DataTable data={tableData} />
-    </>
-  );
+  if (error) {
+    return <div style={{ color: 'red' }}>{error}</div>;
+  }
+
+  return <DataTable data={tableData} />;
 };
 
 export default UpdatingDataTable;

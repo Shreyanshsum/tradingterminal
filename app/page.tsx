@@ -31,8 +31,8 @@ import DataTable from '@components/DataTable';
 import DatePicker from '@components/DatePicker';
 import DashboardRadar from '@components/examples/DashboardRadar';
 import DebugGrid from '@components/DebugGrid';
-import DefaultActionBar from '@components/page/DefaultActionBar';
 import DefaultLayout from '@components/page/DefaultLayout';
+import DashboardLayout from '@components/page/DashboardLayout';
 import Denabase from '@components/examples/Denabase';
 import Dialog from '@components/Dialog';
 import Divider from '@components/Divider';
@@ -127,8 +127,7 @@ export async function generateMetadata({ params, searchParams }) {
 // https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts
 export default async function Page(props) {
   return (
-    <DefaultLayout previewPixelSRC="https://intdev-global.s3.us-west-2.amazonaws.com/template-app-icon.png">
-      <br />
+    <DashboardLayout previewPixelSRC="https://intdev-global.s3.us-west-2.amazonaws.com/template-app-icon.png">
       <Grid>
         <Row>
           {Package.name.toUpperCase()} <Badge>{Package.version}</Badge>
@@ -137,7 +136,6 @@ export default async function Page(props) {
       </Grid>
 
       <DebugGrid />
-      <DefaultActionBar />
 
       <Grid>
         <ActionListItem icon={`⭢`} href="https://internet.dev" target="_blank">
@@ -352,7 +350,7 @@ export default async function Page(props) {
         </Accordion>
 
         <Accordion defaultValue={true} title="BLOG POST">
-          A blog post can be composed of various components from our component repository. Typically, blog posts include breadcrumbs, an avatar, the author’s name, the publication date, and the blog post content.
+          A blog post can be composed of various components from our component repository. Typically, blog posts include breadcrumbs, an avatar, the author's name, the publication date, and the blog post content.
           <br />
           <br />
           <CardDouble title="POST">
@@ -392,10 +390,10 @@ export default async function Page(props) {
             I believe that we have in us a residue of a world-picture which is essentially mechanical in nature – what we might call the mechanist-rationalist world picture ... Like an infection it has entered us, it affects our actions, it affects our morals, it affects our sense of beauty.
             <br />
             <br />
-            This is a picture of a world made of atoms which whirl around in a mechanical fashion: a world in which it is assumed that all the universe is a blind mechanism, whirling on its way, under the impact of the ‘laws of nature.’ These laws are, essentially, those mechanistic laws which explain how the atoms and the structures made of these atoms proceed on their way ... Even though we would admit that the precise laws and mechanisms may not be known, we assume that underlying our ignorance there are some laws, not quite formulated, which do account for how things work ...
+            This is a picture of a world made of atoms which whirl around in a mechanical fashion: a world in which it is assumed that all the universe is a blind mechanism, whirling on its way, under the impact of the 'laws of nature.' These laws are, essentially, those mechanistic laws which explain how the atoms and the structures made of these atoms proceed on their way ... Even though we would admit that the precise laws and mechanisms may not be known, we assume that underlying our ignorance there are some laws, not quite formulated, which do account for how things work ...
             <br />
             <br />
-            I have reached the conclusion that the strange fantasies, the private in-house language about architecture, the strange nature of 20th-century gallery art, deconstructionism, postmodernism, modernism and a host of other ‘isms’, all of which affect our physical world hugely, are created because of an entanglement between the nature of architecture, the practice of architecture, and the mechanical conception of the universe.
+            I have reached the conclusion that the strange fantasies, the private in-house language about architecture, the strange nature of 20th-century gallery art, deconstructionism, postmodernism, modernism and a host of other 'isms', all of which affect our physical world hugely, are created because of an entanglement between the nature of architecture, the practice of architecture, and the mechanical conception of the universe.
             <br />
             <br />
             More precisely, I believe that the mistake and confusion in our picture of the the art of building has come from our conception of what matter is.
@@ -570,7 +568,7 @@ export default async function Page(props) {
           </Card>
           <br />
           <Accordion defaultValue={true} title="BAD BISHOP">
-            The “Bad Bishop” describes a bishop locked on squares of its own color by its own pawns, stifling its mobility. In this example from chess.com, Black’s bishop on B-7 is hindered by its own pawns and cannot be freed easily. Coincidentally, Bad Bishop is also one of the best Seattle bars (704 1st Ave), it is known for its creative cocktails and lively atmosphere.
+            The "Bad Bishop" describes a bishop locked on squares of its own color by its own pawns, stifling its mobility. In this example from chess.com, Black's bishop on B-7 is hindered by its own pawns and cannot be freed easily. Coincidentally, Bad Bishop is also one of the best Seattle bars (704 1st Ave), it is known for its creative cocktails and lively atmosphere.
             <br />
             <br />
             <Card title="BAD BISHOP">
@@ -579,7 +577,7 @@ export default async function Page(props) {
             <br />
           </Accordion>
           <Accordion defaultValue={true} title="CHECKMATE">
-            In chess, the en passant rule allows a pawn to capture an enemy pawn that has just made a two-square advance, moving to the square it bypassed as if it had only advanced one square. This unique rule prevents a pawn from escaping capture by skipping past an opponent. In the scenario below, White uses en passant to deliver checkmate, leaving Black’s king with no legal moves.
+            In chess, the en passant rule allows a pawn to capture an enemy pawn that has just made a two-square advance, moving to the square it bypassed as if it had only advanced one square. This unique rule prevents a pawn from escaping capture by skipping past an opponent. In the scenario below, White uses en passant to deliver checkmate, leaving Black's king with no legal moves.
             <br />
             <br />
             <Card title="EN PASSANT">
@@ -678,9 +676,9 @@ int main() {
         </Accordion>
 
         <Accordion defaultValue={true} title="DASHBOARD RADAR EXAMPLE">
-          The Dashboard Radar Example is a visual homage to Brian Wyvill, the creator of the iconic Nostromo interface in Alien 1979. This example using SRCL components recreates the orbital simulations that brought a sense of realism to the movie’s early scenes.
+          The Dashboard Radar Example is a visual homage to Brian Wyvill, the creator of the iconic Nostromo interface in Alien 1979. This example using SRCL components recreates the orbital simulations that brought a sense of realism to the movie's early scenes.
           <br />
-          <br /> The original AOS (Alien Orbit Simulator) was inspired by the moment when the Nostromo’s crew awakens to decipher a distress signal, this adapation depicts the kind of graphical representation that could chart complex trajectories around distant planets.
+          <br /> The original AOS (Alien Orbit Simulator) was inspired by the moment when the Nostromo's crew awakens to decipher a distress signal, this adapation depicts the kind of graphical representation that could chart complex trajectories around distant planets.
           <br />
           <br />
           <Card>
@@ -700,7 +698,7 @@ int main() {
         </Accordion>
 
         <Accordion defaultValue={true} title="DIALOG">
-          Dialog components overlay the main content—reminiscent of early graphical interfaces—to capture a user’s focus for tasks requiring input, a choice, or confirmation without leaving the current context.
+          Dialog components overlay the main content—reminiscent of early graphical interfaces—to capture a user's focus for tasks requiring input, a choice, or confirmation without leaving the current context.
           <br />
           <br />
           <Card title="EXAMPLE">
@@ -725,7 +723,7 @@ int main() {
         </Accordion>
 
         <Accordion defaultValue={true} title="DIVIDER">
-          A divider separates sections of content, creating clear distinctions between related groups. It is typically a line or space, oriented horizontally or vertically based on the layout. Divider helps organize information, improve readability, and enhance the interface’s clarity and structure.
+          A divider separates sections of content, creating clear distinctions between related groups. It is typically a line or space, oriented horizontally or vertically based on the layout. Divider helps organize information, improve readability, and enhance the interface's clarity and structure.
           <br />
           <br />
           <CardDouble title="ENTROPY">
@@ -734,7 +732,7 @@ int main() {
             <br />
             <Divider />
             <br />
-            To keep track of this cosmic decay, physicists employ a concept called entropy. Entropy is a measure of disorderliness, and the declaration that entropy is always on the rise — known as the second law of thermodynamics — is among nature’s most inescapable commandments.
+            To keep track of this cosmic decay, physicists employ a concept called entropy. Entropy is a measure of disorderliness, and the declaration that entropy is always on the rise — known as the second law of thermodynamics — is among nature's most inescapable commandments.
             <br />
             <br />
             <Divider type="DOUBLE" />
@@ -749,7 +747,7 @@ int main() {
             <br />
             <Divider type="GRADIENT" />
             <br />
-            “Nothing in life is certain except death, taxes and the second law of thermodynamics,” wrote Seth Lloyd, a physicist at the Massachusetts Institute of Technology. There’s no sidestepping this directive. The growth of entropy is deeply entwined with our most basic experiences, accounting for why time runs forward and why the world appears deterministic rather than quantum mechanically uncertain.
+            "Nothing in life is certain except death, taxes and the second law of thermodynamics," wrote Seth Lloyd, a physicist at the Massachusetts Institute of Technology. There's no sidestepping this directive. The growth of entropy is deeply entwined with our most basic experiences, accounting for why time runs forward and why the world appears deterministic rather than quantum mechanically uncertain.
             <br />
             <br />
             <Divider type="GRADIENT" />
@@ -914,9 +912,9 @@ int main() {
             <RadioButtonGroup
               defaultValue="test_individual"
               options={[
-                { value: 'test_individual', label: 'I’m using this for personal use.' },
-                { value: 'test_developer', label: 'I’m building or creating something for work.' },
-                { value: 'test_company', label: 'We’re using this as a team or organization.' },
+                { value: 'test_individual', label: "I'm using this for personal use." },
+                { value: 'test_developer', label: "I'm building or creating something for work." },
+                { value: 'test_company', label: "We're using this as a team or organization." },
               ]}
             />
             <br />
@@ -1310,7 +1308,7 @@ int main() {
           <br />
           <br />
           <CardDouble title="METHOD">
-            You’re at the very beginning of designing your operating system. How do you choose to start?
+            You're at the very beginning of designing your operating system. How do you choose to start?
             <br />
             <br />
             <RadioButtonGroup
@@ -1378,15 +1376,15 @@ int main() {
               isShowingHandle={true}
               sidebar={
                 <>
-                  “I want each of you to go through life making the most of your individuality. Like it or not, you will go out into the real world and be treated as an adult. Adults show each other no mercy. If you fail to cultivate within yourself a fight-back mentality, society will end up controlling you.” <br />
-                  <br /> “Travel changes you. As you move through this life and this world you change things slightly, you leave marks behind, however small. And in return, life - and travel - leaves marks on you. Most of the time, those marks - on your body or on your heart - are beautiful. Often, though, they hurt.”
+                  "I want each of you to go through life making the most of your individuality. Like it or not, you will go out into the real world and be treated as an adult. Adults show each other no mercy. If you fail to cultivate within yourself a fight-back mentality, society will end up controlling you." <br />
+                  <br /> "Travel changes you. As you move through this life and this world you change things slightly, you leave marks behind, however small. And in return, life - and travel - leaves marks on you. Most of the time, those marks - on your body or on your heart - are beautiful. Often, though, they hurt."
                 </>
               }
             >
-              “Never give up. Discover your own options, never count on others and have faith in the paths you discover for yourself. If someone else approves of this new way of life, all the better.”
+              "Never give up. Discover your own options, never count on others and have faith in the paths you discover for yourself. If someone else approves of this new way of life, all the better."
               <br />
               <br />
-              “I do think the idea that basic cooking skills are a virtue, that the ability to feed yourself and a few others with proficiency should be taught to every young man and woman as a fundamental skill, should become as vital to growing up as learning to wipe one’s own ass, cross the street by oneself, or be trusted with money.”
+              "I do think the idea that basic cooking skills are a virtue, that the ability to feed yourself and a few others with proficiency should be taught to every young man and woman as a fundamental skill, should become as vital to growing up as learning to wipe one's own ass, cross the street by oneself, or be trusted with money."
             </SidebarLayout>
           </CardDouble>
           <br />
@@ -1454,7 +1452,7 @@ int main() {
               </TableRow>
               <TableRow>
                 <TableColumn>⍓ Orchid</TableColumn>
-                <TableColumn>Mitigate risks with the world’s most advanced whole genome screening for embryos.</TableColumn>
+                <TableColumn>Mitigate risks with the world's most advanced whole genome screening for embryos.</TableColumn>
               </TableRow>
               <TableRow>
                 <TableColumn>⍓ Ordinary Objects</TableColumn>
@@ -1491,10 +1489,10 @@ int main() {
             <TextArea placeholder="There he took up again his great Ring in Barad-dur." />
           </Card>
           <Card title="AUTO PLAY">
-            <TextArea autoPlay="The doom of the Elves is to be immortal, to love the beauty of the world, to bring it to full flower with their gifts of delicacy and perfection, to last while it lasts, never leaving it even when ‘slain’, but returning – and yet, when the Followers come, to teach them, and make way for them, to ‘fade’ as the Followers grow and absorb the life from which both proceed. The Doom (or the Gift) of Men is mortality, freedom from the circles of the world." autoPlaySpeedMS={50} />
+            <TextArea autoPlay="The doom of the Elves is to be immortal, to love the beauty of the world, to bring it to full flower with their gifts of delicacy and perfection, to last while it lasts, never leaving it even when 'slain', but returning – and yet, when the Followers come, to teach them, and make way for them, to 'fade' as the Followers grow and absorb the life from which both proceed. The Doom (or the Gift) of Men is mortality, freedom from the circles of the world." autoPlaySpeedMS={50} />
           </Card>
           <Card title="AUTO PLAY SLOW">
-            <TextArea autoPlay="All of us who do creative work, we get into it because we have good taste. But there is this gap. For the first couple years you make stuff, it’s just not that good. It’s trying to be good, it has potential, but it’s not. But your taste, the thing that got you into the game, is still killer. And your taste is why your work disappoints you." autoPlaySpeedMS={100} isBlink />
+            <TextArea autoPlay="All of us who do creative work, we get into it because we have good taste. But there is this gap. For the first couple years you make stuff, it's just not that good. It's trying to be good, it has potential, but it's not. But your taste, the thing that got you into the game, is still killer. And your taste is why your work disappoints you." autoPlaySpeedMS={100} isBlink />
           </Card>
           <br />
         </Accordion>
@@ -1615,6 +1613,6 @@ int main() {
         </ActionListItem>
       </Grid>
       <ModalStack />
-    </DefaultLayout>
+    </DashboardLayout>
   );
 }

@@ -46,38 +46,55 @@ export function getDomainFromEmailWithoutAnySubdomain(email: string): string {
 export function onHandleThemeChange(className?: string) {
   const body = document.body;
 
+  // Remove any existing theme classes
   body.classList.forEach((existingClass) => {
     if (existingClass.startsWith('theme-')) {
       body.classList.remove(existingClass);
     }
   });
 
+  // Add the new theme class
   if (className) {
     body.classList.add(className);
+    localStorage.setItem('theme-preference', className);
   } else {
+    // Default to light theme if no theme is specified
     body.classList.add('theme-light');
+    localStorage.setItem('theme-preference', 'theme-light');
   }
 }
 
 export function onHandleFontChange(className?: string) {
   const body = document.body;
 
-  if (className) {
-    body.classList.forEach((existingClass) => {
-      if (existingClass.startsWith('font-')) {
-        body.classList.remove(existingClass);
-      }
-    });
-
-    body.classList.add(className);
-    return;
-  }
-
+  // Remove any existing font classes
   body.classList.forEach((existingClass) => {
     if (existingClass.startsWith('font-')) {
       body.classList.remove(existingClass);
     }
   });
+
+  // Add the new font class
+  if (className) {
+    body.classList.add(className);
+    localStorage.setItem('font-preference', className);
+  } else {
+    // Default to Geist Mono if no font is specified
+    localStorage.removeItem('font-preference');
+  }
+}
+
+export function restorePreferences() {
+  const savedTheme = localStorage.getItem('theme-preference');
+  const savedFont = localStorage.getItem('font-preference');
+
+  if (savedTheme) {
+    onHandleThemeChange(savedTheme);
+  }
+
+  if (savedFont) {
+    onHandleFontChange(savedFont);
+  }
 }
 
 export function formatDollars(value: number): string {

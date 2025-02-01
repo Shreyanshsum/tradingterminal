@@ -9,6 +9,15 @@
   align-self: stretch;
   flex-shrink: 0;
   width: 20ch;
+  transition: width 0.3s ease;
+
+  &.collapsed {
+    width: 4ch !important;
+    
+    :global(.controls) {
+      display: none;
+    }
+  }
 }
 
 .handle {
@@ -52,4 +61,5 @@
 .content {
   min-width: 10%;
   width: 100%;
+  overflow-x: auto;
 }

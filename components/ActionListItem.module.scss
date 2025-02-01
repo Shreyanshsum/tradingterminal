@@ -8,6 +8,10 @@
   outline: 0;
   border: 0;
   text-decoration: none;
+  width: 100%;
+  padding: 0;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size);
 
   &:visited {
     background: transparent;
@@ -25,6 +29,15 @@
 
   &:focus .icon {
     background: var(--theme-focused-foreground);
+  }
+
+  &.active {
+    .icon {
+      background: var(--theme-focused-foreground);
+    }
+    .text {
+      background: var(--theme-focused-foreground-subdued);
+    }
   }
 }
 
